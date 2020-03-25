@@ -1,0 +1,14 @@
+# -----------------------------------------
+# Syntax colouring for RsbLib demo library
+# -----------------------------------------
+
+# Datatypes (such as objects)
+SecureSignalling	KEYWORD1
+
+#Methods / functions
+begin 	KEYWORD2
+listen	KEYWORD2
+
+# Constants
+
+

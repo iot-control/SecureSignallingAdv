@@ -1,0 +1,13 @@
+Accept otp with GET base64
+Devalidate otp with GET base64 + D
+Move listening to loop (while(1))
+Check eth lib
+Add ip logging
+N functions
+N*2 create otp
+N*3 list (num of otps for each function)
+N*4 + 1 Create master otp (can call 0-(N-1) (only functions))
+N*4 + 2 List Master otps
+N*4 + 3 Delete master otps
+N*5 + 4 Get logs
+
