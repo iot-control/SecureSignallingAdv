@@ -11,10 +11,10 @@
 #include <Ethernet2.h>
 #include <sha256.h>
 
-class SecureSendAdv  {
+class SecureSignallingAdv  {
   public:
     // Constructor 
-    SecureSendAdv(
+    SecureSignallingAdv(
 		byte mac[],		/* Enter a MAC address and IP address for your controller below. */
 		IPAddress ip,	/* The IP address will be dependent on your local network: */
 		uint16_t port,	/* The port which the server will be listening */

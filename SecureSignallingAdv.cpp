@@ -1,6 +1,6 @@
-#include "SecureSendAdv.h"
+#include "SecureSignallingAdv.h"
 
-SecureSendAdv::SecureSendAdv(
+SecureSignallingAdv::SecureSignallingAdv(
     byte mac[],
     IPAddress ip,
     uint16_t port,
@@ -41,7 +41,7 @@ SecureSendAdv::SecureSendAdv(
 }
 
 // this is our 'begin' function
-void SecureSendAdv::begin(int baudRate){
+void SecureSignallingAdv::begin(int baudRate){
 
   // Initialize the Ethernet server library
   // with the IP address and port you want to use
@@ -54,7 +54,7 @@ void SecureSendAdv::begin(int baudRate){
     while (!Serial){
       ; // wait for serial port to connect. Needed for Leonardo only
     }
-    Serial.println("SecureSendAdv constructor instantiated successfully.");
+    Serial.println("SecureSignallingAdv constructor instantiated successfully.");
   }
 
   
@@ -304,7 +304,7 @@ void SecureSendAdv::begin(int baudRate){
 
 // Private methods of this class
 
-void SecureSendAdv::gotOTP(uint8_t* OTP, int OTPLen){
+void SecureSignallingAdv::gotOTP(uint8_t* OTP, int OTPLen){
   if(_enableSerial){
     Serial.print("OTP-> _");
     for(int v = 0; v < OTPLen; v++){
@@ -314,13 +314,13 @@ void SecureSendAdv::gotOTP(uint8_t* OTP, int OTPLen){
   }
 }
 
-int SecureSendAdv::createOTP(int funcNum){
+int SecureSignallingAdv::createOTP(int funcNum){
   if(_enableSerial) Serial.println("OTP CREATED");
   return 0;
 }
 
 
-uint8_t* SecureSendAdv::getHash(uint8_t* data, int dataLength, uint8_t* key, int keyLength, uint8_t functionIndex){
+uint8_t* SecureSignallingAdv::getHash(uint8_t* data, int dataLength, uint8_t* key, int keyLength, uint8_t functionIndex){
   Sha256.initHmac(key, keyLength);
   int i;
   for(i=0; i<dataLength; i++){
@@ -329,12 +329,12 @@ uint8_t* SecureSendAdv::getHash(uint8_t* data, int dataLength, uint8_t* key, int
   Sha256.write(functionIndex);
   return Sha256.resultHmac();
 }
-bool SecureSendAdv::hashesAreTheSame(uint8_t* hash1, uint8_t* hash2, int len){
+bool SecureSignallingAdv::hashesAreTheSame(uint8_t* hash1, uint8_t* hash2, int len){
   for (int i=0; i<len; i++) if(hash1[i] != hash2[i]) return false;
   return true;
 }
 
-void SecureSendAdv::printHash(uint8_t* hash){
+void SecureSignallingAdv::printHash(uint8_t* hash){
   if(_enableSerial){
     int i;
     for (i=0; i<32; i++) {
